@@ -1,0 +1,12 @@
+tenants:
+  datasources:
+    tenant_REN73:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_ren-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_REN73}
+      password: ${DB_PASSWORD_REN73}
+--- #this line is important
+subscriptions:
+  queues:
+    queue-close-transfers:
+      topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
