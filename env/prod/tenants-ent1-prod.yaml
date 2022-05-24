@@ -1,0 +1,16 @@
+tenants:
+  datasources:
+    tenant_FJY03:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_fjy-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_FJY03}
+      password: ${DB_PASSWORD_FJY03}
+    tenant_PXT01:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_pxt-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_PXT01}
+      password: ${DB_PASSWORD_PXT01}
+--- #this line is important
+subscriptions:
+  queues:
+    queue-close-transfers:
