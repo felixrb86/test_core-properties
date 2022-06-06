@@ -20,6 +20,11 @@ tenants:
       driverClassName: com.mysql.cj.jdbc.Driver
       username: ${DB_USER_ITN154}
       password: ${DB_PASSWORD_ITN154}
+    tenant_ISI154:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_isi-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_ISI154}
+      password: ${DB_PASSWORD_ISI154}
 --- #this line is important
 subscriptions:
   queues:
