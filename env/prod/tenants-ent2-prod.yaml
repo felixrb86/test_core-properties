@@ -1,7 +1,7 @@
 tenants:
   datasources:
     tenant_REN73:
-      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_ren-prod
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/#database.name#_ren-prod
       driverClassName: com.mysql.cj.jdbc.Driver
       username: ${DB_USER_REN73}
       password: ${DB_PASSWORD_REN73}
@@ -10,3 +10,9 @@ subscriptions:
   queues:
     queue-close-transfers:
       topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
+      eventsFilter:
+        WORKPLACE_BANK_CODE: REN73
+    queue-transactions-operation:
+      topicArn: arn:aws:sns:us-east-1:489231195332:CompensationEvent.fifo
+      eventsFilter:
+        WORKPLACE_BANK_CODE: REN73

@@ -1,46 +1,18 @@
 tenants:
   datasources:
-    tenant_FJY03:
-      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_fjy-prod
+    tenant_REN73:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/#database.name#_ren-prod
       driverClassName: com.mysql.cj.jdbc.Driver
-      username: ${DB_USER_FJY03}
-      password: ${DB_PASSWORD_FJY03}
-    tenant_PXT01:
-      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_pxt-prod
-      driverClassName: com.mysql.cj.jdbc.Driver
-      username: ${DB_USER_PXT01}
-      password: ${DB_PASSWORD_PXT01}
-    tenant_AAA123:
-      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_aaa-prod
-      driverClassName: com.mysql.cj.jdbc.Driver
-      username: ${DB_USER_AAA123}
-      password: ${DB_PASSWORD_AAA123}
-    tenant_ITN154:
-      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_itn-prod
-      driverClassName: com.mysql.cj.jdbc.Driver
-      username: ${DB_USER_ITN154}
-      password: ${DB_PASSWORD_ITN154}
-    tenant_ISI154:
-      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_isi-prod
-      driverClassName: com.mysql.cj.jdbc.Driver
-      username: ${DB_USER_ISI154}
-      password: ${DB_PASSWORD_ISI154}
-    tenant_IEO154:
-      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_ieo-prod
-      driverClassName: com.mysql.cj.jdbc.Driver
-      username: ${DB_USER_IEO154}
-      password: ${DB_PASSWORD_IEO154}
-    tenant_DGE155:
-      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_dge-prod
-      driverClassName: com.mysql.cj.jdbc.Driver
-      username: ${DB_USER_DGE155}
-      password: ${DB_PASSWORD_DGE155}
-    tenant_AOS156:
-      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_aos-prod
-      driverClassName: com.mysql.cj.jdbc.Driver
-      username: ${DB_USER_AOS156}
-      password: ${DB_PASSWORD_AOS156}
+      username: ${DB_USER_REN73}
+      password: ${DB_PASSWORD_REN73}
 --- #this line is important
 subscriptions:
   queues:
     queue-close-transfers:
+      topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
+      eventsFilter:
+        WORKPLACE_BANK_CODE: REN73
+    queue-transactions-operation:
+      topicArn: arn:aws:sns:us-east-1:489231195332:CompensationEvent.fifo
+      eventsFilter:
+        WORKPLACE_BANK_CODE: REN73
