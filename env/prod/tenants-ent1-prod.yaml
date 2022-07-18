@@ -30,6 +30,11 @@ tenants:
       driverClassName: com.mysql.cj.jdbc.Driver
       username: ${DB_USER_DSL160}
       password: ${DB_PASSWORD_DSL160}
+    tenant_DLG161:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_dlg-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_DLG161}
+      password: ${DB_PASSWORD_DLG161}
 --- #this line is important
 subscriptions:
   queues:
@@ -40,4 +45,4 @@ subscriptions:
     queue-transactions-operation:
       topicArn: arn:aws:sns:us-east-1:489231195332:CompensationEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999,DSL160
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,DLG161
