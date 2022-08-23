@@ -10,6 +10,41 @@ tenants:
       driverClassName: com.mysql.cj.jdbc.Driver
       username: ${DB_USER_ZZZ999}
       password: ${DB_PASSWORD_ZZZ999}
+    tenant_DNA157:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_dna-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_DNA157}
+      password: ${DB_PASSWORD_DNA157}
+    tenant_SSA158:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_ssa-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_SSA158}
+      password: ${DB_PASSWORD_SSA158}
+    tenant_AEP159:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_aep-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_AEP159}
+      password: ${DB_PASSWORD_AEP159}
+    tenant_DSL160:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_dsl-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_DSL160}
+      password: ${DB_PASSWORD_DSL160}
+    tenant_DLG161:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_dlg-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_DLG161}
+      password: ${DB_PASSWORD_DLG161}
+    tenant_DCG162:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_dcg-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_DCG162}
+      password: ${DB_PASSWORD_DCG162}
+    tenant_DAD162:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_dad-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_DAD162}
+      password: ${DB_PASSWORD_DAD162}
 --- #this line is important
 subscriptions:
   queues:
@@ -19,9 +54,5 @@ subscriptions:
         WORKPLACE_BANK_CODE: REN73,ZZZ999
     queue-transactions-operation:
       topicArn: arn:aws:sns:us-east-1:489231195332:CompensationEvent.fifo
-      eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999
-    queue-disbursement-result-transfers:
-      topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
       eventsFilter:
         WORKPLACE_BANK_CODE: REN73,ZZZ999
