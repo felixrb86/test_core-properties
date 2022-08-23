@@ -56,3 +56,7 @@ subscriptions:
       topicArn: arn:aws:sns:us-east-1:489231195332:CompensationEvent.fifo
       eventsFilter:
         WORKPLACE_BANK_CODE: REN73,ZZZ999
+    queue-disbursement-result-transfers:
+      topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
+      eventsFilter:
+        WORKPLACE_BANK_CODE: REN73,ZZZ999
