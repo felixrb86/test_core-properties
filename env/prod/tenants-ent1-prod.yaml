@@ -45,18 +45,23 @@ tenants:
       driverClassName: com.mysql.cj.jdbc.Driver
       username: ${DB_USER_DAD162}
       password: ${DB_PASSWORD_DAD162}
+    tenant_AAB123:
+      jdbcUrl: jdbc:mysql://database-${MY_POD_NAMESPACE}.cobre.co/%database.name%_aab-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_AAB123}
+      password: ${DB_PASSWORD_AAB123}
 --- #this line is important
 subscriptions:
   queues:
     queue-close-transfers:
       topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123
     queue-transactions-operation:
       topicArn: arn:aws:sns:us-east-1:489231195332:CompensationEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123
     queue-disbursement-result-transfers:
       topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123
