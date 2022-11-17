@@ -55,18 +55,23 @@ tenants:
       driverClassName: com.mysql.cj.jdbc.Driver
       username: ${DB_USER_BBB123}
       password: ${DB_PASSWORD_BBB123}
+    tenant_AAA001:
+      jdbcUrl: jdbc:mysql://database-%componentId%-${MY_POD_NAMESPACE}.cobre.co/%database.name%_aaa-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_AAA001}
+      password: ${DB_PASSWORD_AAA001}
 --- #this line is important
 subscriptions:
   queues:
     queue-close-transfers:
       topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,AAA001
     queue-transactions-operation:
       topicArn: arn:aws:sns:us-east-1:489231195332:CompensationEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,AAA001
     queue-disbursement-result-transfers:
       topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,AAA001
