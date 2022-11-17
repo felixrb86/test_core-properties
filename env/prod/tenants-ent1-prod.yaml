@@ -65,18 +65,23 @@ tenants:
       driverClassName: com.mysql.cj.jdbc.Driver
       username: ${DB_USER_ABC002}
       password: ${DB_PASSWORD_ABC002}
+    tenant_DEC165:
+      jdbcUrl: jdbc:mysql://database-%componentId%-${MY_POD_NAMESPACE}.cobre.co/%database.name%_dec-prod
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_DEC165}
+      password: ${DB_PASSWORD_DEC165}
 --- #this line is important
 subscriptions:
   queues:
     queue-close-transfers:
       topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,AAA001,ABC002
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,AAA001,ABC002,DEC165
     queue-transactions-operation:
       topicArn: arn:aws:sns:us-east-1:489231195332:CompensationEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,AAA001,ABC002
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,AAA001,ABC002,DEC165
     queue-disbursement-result-transfers:
       topicArn: arn:aws:sns:us-east-1:489231195332:transactionNoveltyEvent.fifo
       eventsFilter:
-        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,AAA001,ABC002
+        WORKPLACE_BANK_CODE: REN73,ZZZ999,AAB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,BBB123,AAA001,ABC002,DEC165
